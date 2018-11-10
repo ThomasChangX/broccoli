@@ -1,1 +1,50 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~bootstrap/dist/css/bootstrap.min.css";
+html,
+body {
+    margin: 0;
+    height: 100vh;
+    /* background-color: gray; */
+}
+
+.bd-footer p {
+    margin-bottom: 0;
+}
+
+.broccoli-index {
+    height: 100vh;
+    padding-top: 73px;
+    padding-bottom: 49px;
+}
+
+.broccoli-header {
+    border-bottom: solid;
+    border-bottom-width: 1px;
+}
+
+.extra-long-word-spacing {
+    word-spacing: 1rem;
+}
+
+.long-word-spacing {
+    word-spacing: 0.5rem;
+}
+
+.broccoli-footer {
+    border-top: solid;
+    border-top-width: 1px;
+}
+
+.black-button-border {
+    border-color: black;
+}
+
+.invite-dialog-heading hr {
+    width: 30%;
+}
+
+.full-width {
+    width: 100%;
+}

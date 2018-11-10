@@ -1,0 +1,41 @@
+<div class="text-center invite-dialog-heading">
+  <h2>{{dialogLabel}}</h2>
+  <hr>
+</div>
+
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.values)" class="text-center" *ngIf="!registed">
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Full name" type="text" formControlName="fullName" [readonly]="sendingRequest">
+    <mat-error *ngIf="formGroup.get('fullName').hasError('required')">Please enter the full name</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Email" type="email" formControlName="email" [readonly]="sendingRequest">
+    <mat-error *ngIf="formGroup.get('email').invalid">{{getEmailErrorMessage('email')}}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Confirm Email" type="email" formControlName="emailConfirm" [readonly]="sendingRequest">
+    <mat-error *ngIf="formGroup.get('emailConfirm').invalid">
+      {{getEmailErrorMessage('emailConfirm')}}
+      {{getEmailConfirmErrorMessage()}}
+    </mat-error>
+  </mat-form-field>
+
+  <p style="color: red">
+    {{serverErrorMsg}}
+  </p>
+
+  <button type="submit" [disabled]="formGroup.invalid || sendingRequest" md-raised-button class="black-button-border full-width">
+    {{sendingRequest ? 'Please wait' : 'Send'}}
+  </button>
+</form>
+
+<div *ngIf="registed" class="text-center">
+  <p><small>You will be one of the first to experience</small></p>
+  <p><small>Broccoli & Co. when we launch.</small></p>
+  <br>
+  <button md-raised-button class="black-button-border full-width" (click)="close()">
+    OK
+  </button>
+</div>
